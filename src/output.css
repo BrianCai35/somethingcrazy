@@ -543,3 +543,18 @@ video {
   --tw-backdrop-saturate:  ;
   --tw-backdrop-sepia:  ;
 }
+
+.search-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: .25rem;
+}
+
+input {
+  font-size: 1rem;
+}
+
+.usercards {
+  display: grid;
+  grid-template-columns: repeat(autofill, minmax(150px, 1fr));
+}
