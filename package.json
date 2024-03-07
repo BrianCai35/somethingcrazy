@@ -8,7 +8,7 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "build-css" : "tailwindcss build src/style.css -o public/style.css" 
+    "build-css" : "tailwindcss build src/input.css -o public/style.css" 
   },
   "dependencies": {
     "astro": "^4.4.13",

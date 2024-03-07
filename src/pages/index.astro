@@ -10,10 +10,34 @@ const pageTitle = "Github Profile Searcher";
 		<meta name="generator" content={Astro.generator} />
 		<title>{pageTitle}</title>
 		<link rel="stylesheet" href = "style.css">
+		<script src = "../scripts/script.js"></script>
 	</head>
 	<body>
+		<header>
+			<label for = "search">Search users</label>
+			<input type="search" id="search">
+		</header>
+		<div class = "usercards">
+			<div class="card">
+				<div class="name">name</div>
+				<div class="bio">hello!</div>
+			</div>
+			<div class="card">
+				<div class="name">name</div>
+				<div class="bio">hello!</div>
+			</div>
+			<div class="card">
+				<div class="name">name</div>
+				<div class="bio">hello!</div>
+			</div>
+			<div class="card">
+				<div class="name">name</div>
+				<div class="bio">hello!</div>
+			</div>
+		</div>
 		<h1>{pageTitle}</h1>
 		<p>this site will be used to create a github profile search tool check back later</p>
 		<a href = "/"></a>
+		
 	</body>
 </html>
