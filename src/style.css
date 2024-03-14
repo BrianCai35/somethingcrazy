@@ -1,6 +1,4 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+
 .search-wrapper {
     display: flex;
     flex-direction: column;
@@ -11,15 +9,28 @@
     font-size: 1rem;
   }
   
-  .usercards {
+  .user-cards {
     display: grid;
     grid-template-columns: repeat(autofill, minmax(150px, 1fr));
+    gap: .25rem;
+    margin-top: 1rem;
   }
-  .cards {
+  
+  .card {
     border: 1px solid black;
     background-color: white;
     padding: .5rem;
   }
+
+  .card > .username{
+    margin-bottom: .25rem;
+  }
+
+  .card > .bio{
+    font-size: .8rem;
+    color: #777;
+  }
+
   .hide {
     display: none;
   }

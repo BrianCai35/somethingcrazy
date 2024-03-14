@@ -9,7 +9,7 @@ const pageTitle = "Github Profile Searcher";
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{pageTitle}</title>
-		<link rel="stylesheet" href = "style.css">
+		<link rel="stylesheet" href = "output.css">
 		<script src = "../scripts/script.js"></script>
 	</head>
 	<body>
@@ -17,8 +17,13 @@ const pageTitle = "Github Profile Searcher";
 			<label for = "search">Search users</label>
 			<input type="search" id="search">
 		</header>
-		<div class = "usercards">
+		<div class = user-cards id = "card-container"></div>
+		<template id = "user-card-template">
+		<div class = "card">
+			<div class = "username" data-header></div>
+			<div class = "bio" data-body></div>
 		</div>
+		</template>
 		<h1>{pageTitle}</h1>
 		<p>this site will be used to create a github profile search tool check back later</p>
 		<a href = "/"></a>
