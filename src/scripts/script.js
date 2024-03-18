@@ -1,7 +1,12 @@
 
 const userCard = document.getElementById("user-card-template");
 const cardContainer = document.getElementById("card-container");
+const input = document.getElementById("search");
 
+input.addEventListener("input", e=>{
+    const value = e.target.value;
+    console.log(value);
+})
 async function GetUserData(username){
     const user = await (await fetch("https://api.github.com/users/"+username)).json();
     return user; // returns promise
