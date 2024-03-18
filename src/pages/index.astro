@@ -14,8 +14,10 @@ const pageTitle = "Github Profile Searcher";
 	</head>
 	<body>
 		<header>
-			<label for = "search">Search users</label>
-			<input type="search" id="search">
+			<div class = "search-wrapper">
+				<img src = "searchicon.png" id = "search-icon">
+				<input type="search" id = "search" placeholder="username" spellcheck="false">
+			</div>
 		</header>
 		<div class = user-cards id = "card-container"></div>
 		<template id = "user-card-template">

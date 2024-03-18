@@ -1,36 +1,64 @@
+body{
+  background-image: url("background.png");
+  font-family: "Be Vietnam Pro", sans-serif;
+}
 
 .search-wrapper {
-    display: flex;
-    flex-direction: column;
-    gap: .25rem;
-  }
-  
-  input {
-    font-size: 1rem;
-  }
-  
-  .user-cards {
-    display: grid;
-    grid-template-columns: repeat(autofill, minmax(150px, 1fr));
-    gap: .25rem;
-    margin-top: 1rem;
-  }
-  
-  .card {
-    border: 1px solid black;
-    background-color: white;
-    padding: .5rem;
-  }
+  display: flex;
+  flex-direction: column;
+  gap: .25rem;
+  margin: auto;
+  width: 30rem;
+  border-radius: 0.8rem;
+  padding: 0.8rem;
+  background-color: #364153;
+  margin-top: 2rem;
+}
 
-  .card > .username{
-    margin-bottom: .25rem;
-  }
+.search {
+  outline: none;
+  border: none;
+  background: transparent;
+}
 
-  .card > .bio{
-    font-size: .8rem;
-    color: #777;
-  }
+.search-icon{
+  background-image: url();
+}
 
-  .hide {
-    display: none;
-  }
+.search-wrapper:focus-within{
+  background-color: #364153;
+  outline-color: #3662E3;
+  outline-width: 3px;
+  outline-style: solid;
+}
+
+input {
+  font-size: 1.2rem;
+}
+
+.user-cards {
+  display: grid;
+  grid-template-columns: repeat(autofill, minmax(150px, 1fr));
+  gap: .25rem;
+  margin-top: 1rem;
+}
+
+.card {
+  border: 1px solid black;
+  background-color: white;
+  padding: .5rem;
+}
+
+.card > .username{
+  margin-bottom: .25rem;
+}
+
+.card > .bio{
+  font-size: .8rem;
+  color: #777;
+}
+
+.hide {
+  display: none;
+}
+

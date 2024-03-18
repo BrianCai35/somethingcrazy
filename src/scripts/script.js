@@ -1,7 +1,7 @@
 
 const userCard = document.getElementById("user-card-template");
 const cardContainer = document.getElementById("card-container");
-const input = document.getElementById("search");
+const input = document.getElementsByClassName("search");
 
 input.addEventListener("input", e=>{
     const value = e.target.value;
