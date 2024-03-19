@@ -1,11 +1,11 @@
 body{
-  background-color: #364153;
+  background-color: #20293A;
   font-family: "Be Vietnam Pro", sans-serif;
 }
 
 header{
   background-image: url("background.png");
-  padding-bottom: 9rem; 
+  padding-bottom: 5rem; 
   padding-top: 0.2rem;
   margin: -0.5rem;
 }
@@ -59,20 +59,19 @@ input::-webkit-search-results-button{display: none;}
   align-items: center;
   gap: .25rem;
   margin-top: 1rem;
-  margin-left: 40rem;
+  margin-left: 44rem;
 }
 
 .card {
-  border: 1px solid black;
-  background-color: white;
+  border: 1px solid transparent;
+  background-color: #111729;
   padding: .5rem;
-  width: 30rem;
+  width: 31rem;
   border-radius: 1rem;
 }
 
 .card > .avatar{
   font-size: .8rem;
-  color: #777;
   height: 5rem;
   width: 5rem;
   float: left;
@@ -82,11 +81,12 @@ input::-webkit-search-results-button{display: none;}
 
 .card > .username{
   margin-bottom: .25rem;
+  color: rgb(214, 215, 230);
 }
 
 .card > .bio{
   font-size: .8rem;
-  color: #777;
+  color: rgb(214, 215, 230);
 }
 
 .hide {
