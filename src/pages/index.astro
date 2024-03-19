@@ -18,12 +18,13 @@ const pageTitle = "Github Profile Searcher";
 				<img src = "searchicon.png" id = "search-icon">
 				<input type="search" id = "search" placeholder="username" spellcheck="false">
 			</div>
+			<div class = user-cards id = "card-container"></div>
 		</header>
-		<div class = user-cards id = "card-container"></div>
 		<template id = "user-card-template">
 		<div class = "card">
-			<div class = "username" data-header></div>
-			<div class = "bio" data-body></div>
+			<img class = "avatar" src = "" data-icon></img>
+			<p class = "username" data-header></p>
+			<p class = "bio" data-body></p>
 		</div>
 		</template>
 		<h1>{pageTitle}</h1>
