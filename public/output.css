@@ -59,7 +59,7 @@ input::-webkit-search-results-button{display: none;}
   align-items: center;
   gap: .25rem;
   margin-top: 1rem;
-  margin-left: 44rem;
+  margin-inline: 44rem;
 }
 
 .card {
@@ -81,13 +81,29 @@ input::-webkit-search-results-button{display: none;}
 
 .card > .username{
   margin-bottom: .25rem;
+  margin-left: 8rem;
   color: rgb(214, 215, 230);
 }
 
 .card > .bio{
   font-size: .8rem;
+  margin-left: 8rem;
   color: rgb(214, 215, 230);
 }
+
+.user-info {
+  border: 1px solid transparent;
+  background-color: #111729;
+  padding: .5rem;
+  width: auto;
+  border-radius: 1rem;
+  display:inline-flex;
+  color: #4A5567;
+  font-size: 1rem;
+  font-weight: 5px;
+}
+
+
 
 .hide {
   display: none;
