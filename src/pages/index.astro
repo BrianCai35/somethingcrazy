@@ -29,23 +29,30 @@ const pageTitle = "Github Profile Searcher";
 		</template>
 		<template id = "repo-card">
 			<div class = "repo">
-				<p class = "title"><>
+				<h4 class = "repo-name"></h4>
 				<p class = "username" data-header></p>
 				<p class = "bio" data-body></p>
+				<img class = "licence" data-body></p>
+				<p class = "bio" data-body></p>
+
 			</div>
 		</template>
-		<h1>{pageTitle}</h1>
-		<div class = "user-info" id = "follower-count">
+		<main>
+		<img id = "user-avatar" src = ""></img>
+		<div class = "user-info">
 			<p><b>Followers</b></p>
-			<p class = "card-text"><p>
+			<p class = "card-text" id = "follower-count"><p>
 		</div>
-		<div class = "user-info" id = "following-count">
+		<div class = "user-info">
 			<p><b>Following</b></p>
-			<p class = "card-text"><p>
+			<p class = "card-text" id = "following-count"><p>
 		</div>
 		<div class = "user-info" id = "location">
 			<p><b>location</b></p>
-			<p class = "card-text"><p>
+			<p class = "card-text" id = "location-text"><p>
 		</div>
+		<h2 id = "username"></h2>
+		<p id = "bio-text"></p>
+		</main>
 	</body>
 </html>

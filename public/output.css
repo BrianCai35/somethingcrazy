@@ -10,6 +10,14 @@ header{
   margin: -0.5rem;
 }
 
+main{
+  display:flex;
+  margin: auto;
+  align-items: center;
+  align-self: center;
+  width:70%;
+}
+
 input {
   font-size: 1.5rem;
   color: rgb(214, 215, 230);
@@ -56,10 +64,9 @@ input::-webkit-search-results-button{display: none;}
 
 .user-cards {
   display: flex; /* PLEASE CENTER TJIS OHMIGOD*/
-  align-items: center;
+  align-self: center;
   gap: .25rem;
   margin-top: 1rem;
-  margin-inline: 44rem;
 }
 
 .card {
@@ -68,6 +75,8 @@ input::-webkit-search-results-button{display: none;}
   padding: .5rem;
   width: 31rem;
   border-radius: 1rem;
+  align-self: center;
+  margin: auto;
 }
 
 .card > .avatar{
@@ -75,7 +84,6 @@ input::-webkit-search-results-button{display: none;}
   height: 5rem;
   width: 5rem;
   float: left;
-  align-self: center;
   margin-left: 2rem;
 }
 
@@ -94,16 +102,48 @@ input::-webkit-search-results-button{display: none;}
 .user-info {
   border: 1px solid transparent;
   background-color: #111729;
-  padding: .5rem;
+  padding: .3rem;
   width: auto;
   border-radius: 1rem;
   display:inline-flex;
   color: #4A5567;
   font-size: 1rem;
   font-weight: 5px;
+  margin-inline: 0.65rem;
+  padding-left: 3rem;
+  text-indent: -1.5rem;
+}
+.card-text{
+  color:rgb(214, 215, 230);
+  margin-left: 5rem;
 }
 
+#user-avatar{
+  width: 8rem;
+  height: 8rem;
+  border: 0.8rem solid;
+  border-color: #20293A;
+  border-radius: 1rem;
+  margin-top: -3rem;
+  margin-right: 2rem;
+}
 
+#username{
+  color:rgb(214, 215, 230);
+  float: left;
+  position: absolute;
+  margin-top: 15rem;
+  font-size: 3rem;
+}
+
+#bio-text{ /* redundant style rule */
+  color:rgb(214, 215, 230);
+  font-size: 1rem;
+  float: left;
+  position: absolute;
+  margin-top: 20rem;
+  margin-left: 0.18rem;
+}
 
 .hide {
   display: none;

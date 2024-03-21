@@ -13,13 +13,21 @@ async function GetUserData(username){
 }
 
 GetUserData("BrianCai35").then(user => {
+    document.getElementById("user-avatar").src = user.avatar_url
+    document.getElementById("follower-count").textContent = user.followers;
+    document.getElementById("following-count").textContent = user.following;
+    document.getElementById("username").textContent = user.login;
+    document.getElementById("bio-text").textContent = user.bio;
+    if(user.location != null){
+        document.getElementById("location").textContent = user.followers;
+    }
+    else{
+        document.getElementById("location").classList.toggle("hide");
+    }
     const card = userCard.content.cloneNode(true).children[0];
-    const header = card.querySelector("[data-header]");
-    const body = card.querySelector("[data-body]");
-    const icon = card.querySelector("[data-icon]");
-    header.textContent = user.login;
-    body.textContent = user.bio;
-    icon.src = user.avatar_url;
+    card.querySelector("[data-header]").textContent = user.login;
+    card.querySelector("[data-body]").textContent = user.bio;
+    card.querySelector("[data-icon]").src = user.avatar_url;
     console.log(card);
     cardContainer.append(card);
 }).catch(error => {
