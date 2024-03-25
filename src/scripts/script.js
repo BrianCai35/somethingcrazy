@@ -3,6 +3,8 @@ const userCard = document.getElementById("user-card-template");
 const cardContainer = document.getElementById("card-container");
 const input = document.getElementById("search");
 
+const repoCard = document.getElementById("user-card-template");
+
 input.addEventListener("input", e =>{
     const value = e.target.value;
     console.log(value);
@@ -24,12 +26,21 @@ GetUserData("BrianCai35").then(user => {
     else{
         document.getElementById("location").classList.toggle("hide");
     }
-    const card = userCard.content.cloneNode(true).children[0];
+
+    const repos = repoCard.content.cloneNode(true).children[0];
+    card.getElementsby("[data-header]").textContent = user.login;
+    card.querySelector("[data-body]").textContent = user.bio;
+    card.querySelector("[data-icon]").src = user.avatar_url;
+    console.log(card);
+    cardContainer.append(card);
+
+    const card = userCard.content.cloneNode(true).children[0]; // this part requires to be on a seperate method 
     card.querySelector("[data-header]").textContent = user.login;
     card.querySelector("[data-body]").textContent = user.bio;
     card.querySelector("[data-icon]").src = user.avatar_url;
     console.log(card);
     cardContainer.append(card);
+
 }).catch(error => {
     console.log("ERROR: "+ error);
 })
