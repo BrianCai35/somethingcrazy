@@ -13,6 +13,24 @@ const pageTitle = "Github Profile Searcher";
 		<script src = "../scripts/script.js"></script>
 	</head>
 	<body>
+		<template id = "repo-card">
+			<div class = "repo">
+				<h4 class = "repo-name" repo-name></h4>
+				<p class = "repo-description" repo-description></p>
+				<p class = "repo-forks" repo-forks></p>
+				<p class = "repo-stars" repo-stars></p>
+				<p class = "repo-licence" repo-licence></p>
+				<p class = "last-updated" repo-time></p>
+			</div>
+		</template>
+		<template id = "user-card-template">
+			<div class = "card">
+				<img class = "avatar" src = "" data-icon></img>
+				<p class = "username" data-header></p>
+				<p class = "bio" data-body></p>
+			</div>
+		</template>
+
 		<header>
 			<div class = "search-wrapper">
 				<img src = "searchicon.png" id = "search-icon">
@@ -20,23 +38,6 @@ const pageTitle = "Github Profile Searcher";
 			</div>
 			<div class = user-cards id = "card-container"></div>
 		</header>
-		<template id = "user-card-template">
-		<div class = "card">
-			<img class = "avatar" src = "" data-icon></img>
-			<p class = "username" data-header></p>
-			<p class = "bio" data-body></p>
-		</div>
-		</template>
-		<template id = "repo-card">
-			<div class = "repo">
-				<h4 class = "repo-name" data-header></h4>
-				<p class = "discription" data-body></p>
-				<p class = "forks"></p>
-				<img class = "stars"></p>
-				<p class = "liscence"></p>
-				<p class = "bio"></p>
-			</div>
-		</template>
 		<main>
 		<img id = "user-avatar" src = ""></img>
 		<div class = "user-info">
@@ -54,5 +55,6 @@ const pageTitle = "Github Profile Searcher";
 		<h2 id = "username"></h2>
 		<p id = "bio-text"></p>
 		</main>
+		<article id = "repos-container"></article>
 	</body>
 </html>

@@ -20,7 +20,7 @@ main{
 
 input {
   font-size: 1.5rem;
-  color: rgb(214, 215, 230);
+  color: rgb(204,212,223);
 }
 
 
@@ -63,7 +63,7 @@ input::-webkit-search-decoration{display: none;}
 input::-webkit-search-results-button{display: none;}
 
 .user-cards {
-  display: flex; /* PLEASE CENTER TJIS OHMIGOD*/
+  display: flex;
   align-self: center;
   gap: .25rem;
   margin-top: 1rem;
@@ -90,13 +90,13 @@ input::-webkit-search-results-button{display: none;}
 .card > .username{
   margin-bottom: .25rem;
   margin-left: 8rem;
-  color: rgb(214, 215, 230);
+  color: rgb(204,212,223);
 }
 
 .card > .bio{
   font-size: .8rem;
   margin-left: 8rem;
-  color: rgb(214, 215, 230);
+  color: rgb(204,212,223);
 }
 
 .user-info {
@@ -114,7 +114,7 @@ input::-webkit-search-results-button{display: none;}
   text-indent: -1.5rem;
 }
 .card-text{
-  color:rgb(214, 215, 230);
+  color:rgb(204,212,223);
   margin-left: 5rem;
 }
 
@@ -129,7 +129,7 @@ input::-webkit-search-results-button{display: none;}
 }
 
 #username{
-  color:rgb(214, 215, 230);
+  color:rgb(204,212,223);
   float: left;
   position: absolute;
   margin-top: 15rem;
@@ -137,12 +137,31 @@ input::-webkit-search-results-button{display: none;}
 }
 
 #bio-text{ /* redundant style rule */
-  color:rgb(214, 215, 230);
+  color:rgb(204,212,223);
   font-size: 1rem;
   float: left;
   position: absolute;
   margin-top: 20rem;
   margin-left: 0.18rem;
+}
+
+#repos-container{
+  width: 70vw;
+  margin: auto;
+  margin-top: 8rem;
+  align-content: center;
+
+}
+.repo{
+  background-image:linear-gradient(to right, rgb(17,22,41),rgb(28,27,70)) ;
+  width: 30vw;
+  border-radius: 2rem;
+  padding:.1rem;
+  padding-left: 2rem;
+  color: rgb(204,212,223);
+}
+.repo-forks{
+  
 }
 
 .hide {
