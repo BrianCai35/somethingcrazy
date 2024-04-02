@@ -3,7 +3,7 @@ const userCard = document.getElementById("user-card-template");
 const cardContainer = document.getElementById("card-container");
 const input = document.getElementById("search");
 const reposContainer = document.getElementById("repos-container");
-const currentUser = "BrianCai35" // this is used purely for debugging purposes
+const currentUser = "github" // this is used purely for debugging purposes
 
 const repoCard = document.getElementById("repo-card");
 
@@ -33,7 +33,7 @@ GetUserData(currentUser).then(user => {
     document.getElementById("username").textContent = user.login;
     document.getElementById("bio-text").textContent = user.bio;
     if(user.location != null){
-        document.getElementById("location").textContent = user.followers;
+        document.getElementById("location-text").textContent = user.location;
     }
     else{
         document.getElementById("location").classList.toggle("hide");
@@ -51,28 +51,28 @@ GetUserData(currentUser).then(user => {
 })
 
 GetReposData(currentUser).then(reposData =>{
-    //(reposData).forEach(element => {
-        console.log(reposData);
+    (reposData).forEach(element => {
+        console.log(element);
         const repos = repoCard.content.cloneNode(true).children[0];
-        repos.querySelector('[repo-name]').textContent = reposData[0].name; // query selector is used because i literally have no other idea how to solve this
-        repos.querySelector("[repo-forks]").textContent = reposData[0].forks_count;
-        repos.querySelector("[repo-stars]").textContent = reposData[0].stargazers_count;
-        repos.querySelector("[repo-time]").textContent = reposData[0].updated_at;
+        repos.querySelector('[repo-name]').textContent = element.name; // query selector is used because i literally have no other idea how to solve this
+        repos.querySelector("[repo-forks]").textContent = element.forks_count;
+        repos.querySelector("[repo-stars]").textContent = element.stargazers_count;
+        repos.querySelector("[repo-time]").textContent = element.updated_at;
         
 
-        if(reposData[0].licence != null){
-            repos.querySelector("[repo-licence]").textContent = reposData[0].license;
+        if(element.licence != null){
+            repos.querySelector("[repo-licence]").textContent = element.license.key;
         }
         else{
             repos.querySelector("[repo-licence]").classList.toggle("hide");
         }
-        if(reposData[0].description != null){ // may change for styiung purposes
-            repos.querySelector("[repo-description]").textContent = repos[0].description;
+        if(element.description != null){ // may change for styiung purposes
+            repos.querySelector("[repo-description]").textContent = element.description;
         }
         else{
             repos.querySelector("[repo-description]").classList.toggle("hide");
         }
         reposContainer.append(repos);
-    //});
+    });
 
 })

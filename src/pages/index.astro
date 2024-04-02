@@ -9,18 +9,26 @@ const pageTitle = "Github Profile Searcher";
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{pageTitle}</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 		<link rel="stylesheet" href = "output.css">
 		<script src = "../scripts/script.js"></script>
 	</head>
 	<body>
 		<template id = "repo-card">
 			<div class = "repo">
+				<p></p>
 				<h4 class = "repo-name" repo-name></h4>
 				<p class = "repo-description" repo-description></p>
-				<p class = "repo-forks" repo-forks></p>
-				<p class = "repo-stars" repo-stars></p>
-				<p class = "repo-licence" repo-licence></p>
-				<p class = "last-updated" repo-time></p>
+				<div id = repo-information>
+					<p class = "repo-licence" repo-licence></p>
+					<img id = "forks-icon" src = "FORK ICON.png"></img>
+					<p class = "repo-forks" repo-forks></p>
+					<img id = "stars-icon" src = "stars-icon.png">
+					<p class = "repo-stars" repo-stars></p>
+					<p class = "last-updated" repo-time></p>
+				</div>
 			</div>
 		</template>
 		<template id = "user-card-template">
@@ -49,7 +57,7 @@ const pageTitle = "Github Profile Searcher";
 			<p class = "card-text" id = "following-count"><p>
 		</div>
 		<div class = "user-info" id = "location">
-			<p><b>location</b></p>
+			<p><b>Location</b></p>
 			<p class = "card-text" id = "location-text"><p>
 		</div>
 		<h2 id = "username"></h2>
