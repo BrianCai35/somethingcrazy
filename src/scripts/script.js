@@ -3,7 +3,7 @@ const userCard = document.getElementById("user-card-template");
 const cardContainer = document.getElementById("card-container");
 const input = document.getElementById("search");
 const reposContainer = document.getElementById("repos-container");
-const currentUser = "github" // this is used purely for debugging purposes
+const currentUser = document.title // this is used purely for debugging purposes
 
 const repoCard = document.getElementById("repo-card");
 
