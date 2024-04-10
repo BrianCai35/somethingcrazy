@@ -1,28 +1,28 @@
-import localFont from "next/font/local";
-import { Kumbh_Sans } from "next/font/google";
+import localFont from 'next/font/local'
+import { Kumbh_Sans } from 'next/font/google'
 
 export const pilowlava = localFont({
   src: [
     {
-      path: "../../public/fonts/Pilowlava-Regular.otf",
-    },
+      path: '../../public/fonts/Pilowlava-Regular.otf'
+    }
   ],
-  variable: "--font-pilowlava",
-  display: "swap",
-});
+  variable: '--font-pilowlava',
+  display: 'swap'
+})
 
 export const strasua = localFont({
   src: [
     {
-      path: "../../public/fonts/strasua.otf",
-    },
+      path: '../../public/fonts/strasua.otf'
+    }
   ],
-  variable: "--font-strasua",
-  display: "swap",
-});
+  variable: '--font-strasua',
+  display: 'swap'
+})
 
 export const kumbhSans = Kumbh_Sans({
-  subsets: ["latin"],
-  variable: "--font-kumbh-sans",
-  display: "swap",
-});
+  subsets: ['latin'],
+  variable: '--font-kumbh-sans',
+  display: 'swap'
+})
