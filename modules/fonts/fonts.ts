@@ -21,8 +21,10 @@ export const strasua = localFont({
   display: 'swap'
 })
 
-export const kumbhSans = Kumbh_Sans({
+const kumbhSansFont = Kumbh_Sans({
   subsets: ['latin'],
   variable: '--font-kumbh-sans',
   display: 'swap'
 })
+
+export const kumbhSans = `${kumbhSansFont.variable} font-kumbh-sans`
