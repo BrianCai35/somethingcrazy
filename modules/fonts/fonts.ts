@@ -27,6 +27,6 @@ const kumbhSansFont = Kumbh_Sans({
   display: 'swap'
 })
 
-export const kumbhSans = `${kumbhSansFont.variable} font-kumbh-sans`
-export const strasua = `${strasuaFont.variable} font-strasua`
-export const pilowlava = `${pilowlavaFont.variable} font-pilowlava`
+export const kumbhSans = `${kumbhSansFont.variable.toString()} font-kumbh-sans`
+export const strasua = `${strasuaFont.variable.toString()} font-strasua`
+export const pilowlava = `${pilowlavaFont.variable.toString()} font-pilowlava`
