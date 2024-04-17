@@ -1,7 +1,7 @@
 import localFont from 'next/font/local'
 import { Kumbh_Sans } from 'next/font/google'
 
-export const pilowlava = localFont({
+const pilowlavaFont = localFont({
   src: [
     {
       path: '../../public/fonts/Pilowlava-Regular.otf'
@@ -11,7 +11,7 @@ export const pilowlava = localFont({
   display: 'swap'
 })
 
-export const strasua = localFont({
+const strasuaFont = localFont({
   src: [
     {
       path: '../../public/fonts/strasua.otf'
@@ -28,3 +28,5 @@ const kumbhSansFont = Kumbh_Sans({
 })
 
 export const kumbhSans = `${kumbhSansFont.variable} font-kumbh-sans`
+export const strasua = `${strasuaFont.variable} font-strasua`
+export const pilowlava = `${pilowlavaFont.variable} font-pilowlava`
