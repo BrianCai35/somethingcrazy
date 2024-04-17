@@ -20,7 +20,7 @@
     "paths": {
       "@/*": ["./*"],
       "fonts": ["./modules/fonts/fonts.ts"],
-      "components/*": ["./modules/components/*"],
+      "components": ["./modules/components/index.ts"],
       "queries": ["./modules/queries/index.ts"],
       "svgs": ["./modules/svgs/index.ts"]
     }
