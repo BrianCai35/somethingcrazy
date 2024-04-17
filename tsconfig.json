@@ -21,6 +21,7 @@
       "@/*": ["./*"],
       "fonts": ["./modules/fonts/fonts.ts"],
       "components/*": ["./modules/components/*"],
+      "queries/*": ["./modules/queries/*"],
       "svgs": ["./modules/svgs/index.ts"]
     }
   },
