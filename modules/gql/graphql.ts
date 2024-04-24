@@ -1643,6 +1643,7 @@ export enum EntityTypeName {
   Asset = 'Asset',
   HomePage = 'HomePage',
   HomePageHeroSection = 'HomePageHeroSection',
+  HomePageMainSection = 'HomePageMainSection',
   Image = 'Image',
   /** Scheduled Operation system model */
   ScheduledOperation = 'ScheduledOperation',
@@ -1675,6 +1676,7 @@ export type HomePage = Entity & Node & {
   history: Array<Version>;
   /** The unique identifier */
   id: Scalars['ID']['output'];
+  mainSection: HomePageMainSection;
   /** The time the document was published. Null on documents in draft stage. */
   publishedAt?: Maybe<Scalars['DateTime']['output']>;
   /** User that last published this document */
@@ -1712,6 +1714,12 @@ export type HomePageHistoryArgs = {
   limit?: Scalars['Int']['input'];
   skip?: Scalars['Int']['input'];
   stageOverride?: InputMaybe<Stage>;
+};
+
+
+export type HomePageMainSectionArgs = {
+  forceParentLocale?: InputMaybe<Scalars['Boolean']['input']>;
+  locales?: InputMaybe<Array<Locale>>;
 };
 
 
@@ -1758,6 +1766,7 @@ export type HomePageConnection = {
 export type HomePageCreateInput = {
   createdAt?: InputMaybe<Scalars['DateTime']['input']>;
   heroSection: HomePageHeroSectionCreateOneInlineInput;
+  mainSection: HomePageMainSectionCreateOneInlineInput;
   updatedAt?: InputMaybe<Scalars['DateTime']['input']>;
 };
 
@@ -2200,6 +2209,360 @@ export type HomePageHeroSectionWhereUniqueInput = {
   id?: InputMaybe<Scalars['ID']['input']>;
 };
 
+export type HomePageMainSection = Entity & {
+  __typename?: 'HomePageMainSection';
+  bulletPoints: Array<Scalars['String']['output']>;
+  details: RichText;
+  /** The unique identifier */
+  id: Scalars['ID']['output'];
+  linkText: Scalars['String']['output'];
+  /** System stage field */
+  stage: Stage;
+};
+
+export type HomePageMainSectionConnectInput = {
+  /** Allow to specify document position in list of connected documents, will default to appending at end of list */
+  position?: InputMaybe<ConnectPositionInput>;
+  /** Document to connect */
+  where: HomePageMainSectionWhereUniqueInput;
+};
+
+/** A connection to a list of items. */
+export type HomePageMainSectionConnection = {
+  __typename?: 'HomePageMainSectionConnection';
+  aggregate: Aggregate;
+  /** A list of edges. */
+  edges: Array<HomePageMainSectionEdge>;
+  /** Information to aid in pagination. */
+  pageInfo: PageInfo;
+};
+
+export type HomePageMainSectionCreateInput = {
+  bulletPoints: Array<Scalars['String']['input']>;
+  details: Scalars['RichTextAST']['input'];
+  linkText: Scalars['String']['input'];
+};
+
+export type HomePageMainSectionCreateManyInlineInput = {
+  /** Create and connect multiple existing HomePageMainSection documents */
+  create?: InputMaybe<Array<HomePageMainSectionCreateInput>>;
+};
+
+export type HomePageMainSectionCreateOneInlineInput = {
+  /** Create and connect one HomePageMainSection document */
+  create?: InputMaybe<HomePageMainSectionCreateInput>;
+};
+
+export type HomePageMainSectionCreateWithPositionInput = {
+  /** Document to create */
+  data: HomePageMainSectionCreateInput;
+  /** Position in the list of existing component instances, will default to appending at the end of list */
+  position?: InputMaybe<ConnectPositionInput>;
+};
+
+/** An edge in a connection. */
+export type HomePageMainSectionEdge = {
+  __typename?: 'HomePageMainSectionEdge';
+  /** A cursor for use in pagination. */
+  cursor: Scalars['String']['output'];
+  /** The item at the end of the edge. */
+  node: HomePageMainSection;
+};
+
+/** Identifies documents */
+export type HomePageMainSectionManyWhereInput = {
+  /** Logical AND on all given filters. */
+  AND?: InputMaybe<Array<HomePageMainSectionWhereInput>>;
+  /** Logical NOT on all given filters combined by AND. */
+  NOT?: InputMaybe<Array<HomePageMainSectionWhereInput>>;
+  /** Logical OR on all given filters. */
+  OR?: InputMaybe<Array<HomePageMainSectionWhereInput>>;
+  /** Contains search across all appropriate fields. */
+  _search?: InputMaybe<Scalars['String']['input']>;
+  /** Matches if the field array contains *all* items provided to the filter and order does match */
+  bulletPoints?: InputMaybe<Array<Scalars['String']['input']>>;
+  /** Matches if the field array contains *all* items provided to the filter */
+  bulletPoints_contains_all?: InputMaybe<Array<Scalars['String']['input']>>;
+  /** Matches if the field array does not contain any of the items provided to the filter */
+  bulletPoints_contains_none?: InputMaybe<Array<Scalars['String']['input']>>;
+  /** Matches if the field array contains at least one item provided to the filter */
+  bulletPoints_contains_some?: InputMaybe<Array<Scalars['String']['input']>>;
+  /** Matches if the field array does not contains *all* items provided to the filter or order does not match */
+  bulletPoints_not?: InputMaybe<Array<Scalars['String']['input']>>;
+  id?: InputMaybe<Scalars['ID']['input']>;
+  /** All values containing the given string. */
+  id_contains?: InputMaybe<Scalars['ID']['input']>;
+  /** All values ending with the given string. */
+  id_ends_with?: InputMaybe<Scalars['ID']['input']>;
+  /** All values that are contained in given list. */
+  id_in?: InputMaybe<Array<InputMaybe<Scalars['ID']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  id_not?: InputMaybe<Scalars['ID']['input']>;
+  /** All values not containing the given string. */
+  id_not_contains?: InputMaybe<Scalars['ID']['input']>;
+  /** All values not ending with the given string */
+  id_not_ends_with?: InputMaybe<Scalars['ID']['input']>;
+  /** All values that are not contained in given list. */
+  id_not_in?: InputMaybe<Array<InputMaybe<Scalars['ID']['input']>>>;
+  /** All values not starting with the given string. */
+  id_not_starts_with?: InputMaybe<Scalars['ID']['input']>;
+  /** All values starting with the given string. */
+  id_starts_with?: InputMaybe<Scalars['ID']['input']>;
+  linkText?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  linkText_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  linkText_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  linkText_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  linkText_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  linkText_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  linkText_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  linkText_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  linkText_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  linkText_starts_with?: InputMaybe<Scalars['String']['input']>;
+};
+
+export enum HomePageMainSectionOrderByInput {
+  BulletPointsAsc = 'bulletPoints_ASC',
+  BulletPointsDesc = 'bulletPoints_DESC',
+  IdAsc = 'id_ASC',
+  IdDesc = 'id_DESC',
+  LinkTextAsc = 'linkText_ASC',
+  LinkTextDesc = 'linkText_DESC'
+}
+
+export type HomePageMainSectionParent = HomePage;
+
+export type HomePageMainSectionParentConnectInput = {
+  HomePage?: InputMaybe<HomePageConnectInput>;
+};
+
+export type HomePageMainSectionParentCreateInput = {
+  HomePage?: InputMaybe<HomePageCreateInput>;
+};
+
+export type HomePageMainSectionParentCreateManyInlineInput = {
+  /** Connect multiple existing HomePageMainSectionParent documents */
+  connect?: InputMaybe<Array<HomePageMainSectionParentWhereUniqueInput>>;
+  /** Create and connect multiple existing HomePageMainSectionParent documents */
+  create?: InputMaybe<Array<HomePageMainSectionParentCreateInput>>;
+};
+
+export type HomePageMainSectionParentCreateOneInlineInput = {
+  /** Connect one existing HomePageMainSectionParent document */
+  connect?: InputMaybe<HomePageMainSectionParentWhereUniqueInput>;
+  /** Create and connect one HomePageMainSectionParent document */
+  create?: InputMaybe<HomePageMainSectionParentCreateInput>;
+};
+
+export type HomePageMainSectionParentUpdateInput = {
+  HomePage?: InputMaybe<HomePageUpdateInput>;
+};
+
+export type HomePageMainSectionParentUpdateManyInlineInput = {
+  /** Connect multiple existing HomePageMainSectionParent documents */
+  connect?: InputMaybe<Array<HomePageMainSectionParentConnectInput>>;
+  /** Create and connect multiple HomePageMainSectionParent documents */
+  create?: InputMaybe<Array<HomePageMainSectionParentCreateInput>>;
+  /** Delete multiple HomePageMainSectionParent documents */
+  delete?: InputMaybe<Array<HomePageMainSectionParentWhereUniqueInput>>;
+  /** Disconnect multiple HomePageMainSectionParent documents */
+  disconnect?: InputMaybe<Array<HomePageMainSectionParentWhereUniqueInput>>;
+  /** Override currently-connected documents with multiple existing HomePageMainSectionParent documents */
+  set?: InputMaybe<Array<HomePageMainSectionParentWhereUniqueInput>>;
+  /** Update multiple HomePageMainSectionParent documents */
+  update?: InputMaybe<Array<HomePageMainSectionParentUpdateWithNestedWhereUniqueInput>>;
+  /** Upsert multiple HomePageMainSectionParent documents */
+  upsert?: InputMaybe<Array<HomePageMainSectionParentUpsertWithNestedWhereUniqueInput>>;
+};
+
+export type HomePageMainSectionParentUpdateManyWithNestedWhereInput = {
+  HomePage?: InputMaybe<HomePageUpdateManyWithNestedWhereInput>;
+};
+
+export type HomePageMainSectionParentUpdateOneInlineInput = {
+  /** Connect existing HomePageMainSectionParent document */
+  connect?: InputMaybe<HomePageMainSectionParentWhereUniqueInput>;
+  /** Create and connect one HomePageMainSectionParent document */
+  create?: InputMaybe<HomePageMainSectionParentCreateInput>;
+  /** Delete currently connected HomePageMainSectionParent document */
+  delete?: InputMaybe<Scalars['Boolean']['input']>;
+  /** Disconnect currently connected HomePageMainSectionParent document */
+  disconnect?: InputMaybe<Scalars['Boolean']['input']>;
+  /** Update single HomePageMainSectionParent document */
+  update?: InputMaybe<HomePageMainSectionParentUpdateWithNestedWhereUniqueInput>;
+  /** Upsert single HomePageMainSectionParent document */
+  upsert?: InputMaybe<HomePageMainSectionParentUpsertWithNestedWhereUniqueInput>;
+};
+
+export type HomePageMainSectionParentUpdateWithNestedWhereUniqueInput = {
+  HomePage?: InputMaybe<HomePageUpdateWithNestedWhereUniqueInput>;
+};
+
+export type HomePageMainSectionParentUpsertWithNestedWhereUniqueInput = {
+  HomePage?: InputMaybe<HomePageUpsertWithNestedWhereUniqueInput>;
+};
+
+export type HomePageMainSectionParentWhereInput = {
+  HomePage?: InputMaybe<HomePageWhereInput>;
+};
+
+export type HomePageMainSectionParentWhereUniqueInput = {
+  HomePage?: InputMaybe<HomePageWhereUniqueInput>;
+};
+
+export type HomePageMainSectionUpdateInput = {
+  bulletPoints?: InputMaybe<Array<Scalars['String']['input']>>;
+  details?: InputMaybe<Scalars['RichTextAST']['input']>;
+  linkText?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type HomePageMainSectionUpdateManyInlineInput = {
+  /** Create and connect multiple HomePageMainSection component instances */
+  create?: InputMaybe<Array<HomePageMainSectionCreateWithPositionInput>>;
+  /** Delete multiple HomePageMainSection documents */
+  delete?: InputMaybe<Array<HomePageMainSectionWhereUniqueInput>>;
+  /** Update multiple HomePageMainSection component instances */
+  update?: InputMaybe<Array<HomePageMainSectionUpdateWithNestedWhereUniqueAndPositionInput>>;
+  /** Upsert multiple HomePageMainSection component instances */
+  upsert?: InputMaybe<Array<HomePageMainSectionUpsertWithNestedWhereUniqueAndPositionInput>>;
+};
+
+export type HomePageMainSectionUpdateManyInput = {
+  bulletPoints?: InputMaybe<Array<Scalars['String']['input']>>;
+  details?: InputMaybe<Scalars['RichTextAST']['input']>;
+  linkText?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type HomePageMainSectionUpdateManyWithNestedWhereInput = {
+  /** Update many input */
+  data: HomePageMainSectionUpdateManyInput;
+  /** Document search */
+  where: HomePageMainSectionWhereInput;
+};
+
+export type HomePageMainSectionUpdateOneInlineInput = {
+  /** Create and connect one HomePageMainSection document */
+  create?: InputMaybe<HomePageMainSectionCreateInput>;
+  /** Delete currently connected HomePageMainSection document */
+  delete?: InputMaybe<Scalars['Boolean']['input']>;
+  /** Update single HomePageMainSection document */
+  update?: InputMaybe<HomePageMainSectionUpdateWithNestedWhereUniqueInput>;
+  /** Upsert single HomePageMainSection document */
+  upsert?: InputMaybe<HomePageMainSectionUpsertWithNestedWhereUniqueInput>;
+};
+
+export type HomePageMainSectionUpdateWithNestedWhereUniqueAndPositionInput = {
+  /** Document to update */
+  data?: InputMaybe<HomePageMainSectionUpdateInput>;
+  /** Position in the list of existing component instances, will default to appending at the end of list */
+  position?: InputMaybe<ConnectPositionInput>;
+  /** Unique component instance search */
+  where: HomePageMainSectionWhereUniqueInput;
+};
+
+export type HomePageMainSectionUpdateWithNestedWhereUniqueInput = {
+  /** Document to update */
+  data: HomePageMainSectionUpdateInput;
+  /** Unique document search */
+  where: HomePageMainSectionWhereUniqueInput;
+};
+
+export type HomePageMainSectionUpsertInput = {
+  /** Create document if it didn't exist */
+  create: HomePageMainSectionCreateInput;
+  /** Update document if it exists */
+  update: HomePageMainSectionUpdateInput;
+};
+
+export type HomePageMainSectionUpsertWithNestedWhereUniqueAndPositionInput = {
+  /** Document to upsert */
+  data?: InputMaybe<HomePageMainSectionUpsertInput>;
+  /** Position in the list of existing component instances, will default to appending at the end of list */
+  position?: InputMaybe<ConnectPositionInput>;
+  /** Unique component instance search */
+  where: HomePageMainSectionWhereUniqueInput;
+};
+
+export type HomePageMainSectionUpsertWithNestedWhereUniqueInput = {
+  /** Upsert data */
+  data: HomePageMainSectionUpsertInput;
+  /** Unique document search */
+  where: HomePageMainSectionWhereUniqueInput;
+};
+
+/** Identifies documents */
+export type HomePageMainSectionWhereInput = {
+  /** Logical AND on all given filters. */
+  AND?: InputMaybe<Array<HomePageMainSectionWhereInput>>;
+  /** Logical NOT on all given filters combined by AND. */
+  NOT?: InputMaybe<Array<HomePageMainSectionWhereInput>>;
+  /** Logical OR on all given filters. */
+  OR?: InputMaybe<Array<HomePageMainSectionWhereInput>>;
+  /** Contains search across all appropriate fields. */
+  _search?: InputMaybe<Scalars['String']['input']>;
+  /** Matches if the field array contains *all* items provided to the filter and order does match */
+  bulletPoints?: InputMaybe<Array<Scalars['String']['input']>>;
+  /** Matches if the field array contains *all* items provided to the filter */
+  bulletPoints_contains_all?: InputMaybe<Array<Scalars['String']['input']>>;
+  /** Matches if the field array does not contain any of the items provided to the filter */
+  bulletPoints_contains_none?: InputMaybe<Array<Scalars['String']['input']>>;
+  /** Matches if the field array contains at least one item provided to the filter */
+  bulletPoints_contains_some?: InputMaybe<Array<Scalars['String']['input']>>;
+  /** Matches if the field array does not contains *all* items provided to the filter or order does not match */
+  bulletPoints_not?: InputMaybe<Array<Scalars['String']['input']>>;
+  id?: InputMaybe<Scalars['ID']['input']>;
+  /** All values containing the given string. */
+  id_contains?: InputMaybe<Scalars['ID']['input']>;
+  /** All values ending with the given string. */
+  id_ends_with?: InputMaybe<Scalars['ID']['input']>;
+  /** All values that are contained in given list. */
+  id_in?: InputMaybe<Array<InputMaybe<Scalars['ID']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  id_not?: InputMaybe<Scalars['ID']['input']>;
+  /** All values not containing the given string. */
+  id_not_contains?: InputMaybe<Scalars['ID']['input']>;
+  /** All values not ending with the given string */
+  id_not_ends_with?: InputMaybe<Scalars['ID']['input']>;
+  /** All values that are not contained in given list. */
+  id_not_in?: InputMaybe<Array<InputMaybe<Scalars['ID']['input']>>>;
+  /** All values not starting with the given string. */
+  id_not_starts_with?: InputMaybe<Scalars['ID']['input']>;
+  /** All values starting with the given string. */
+  id_starts_with?: InputMaybe<Scalars['ID']['input']>;
+  linkText?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  linkText_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  linkText_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  linkText_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  linkText_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  linkText_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  linkText_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  linkText_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  linkText_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  linkText_starts_with?: InputMaybe<Scalars['String']['input']>;
+};
+
+/** References HomePageMainSection record uniquely */
+export type HomePageMainSectionWhereUniqueInput = {
+  id?: InputMaybe<Scalars['ID']['input']>;
+};
+
 /** Identifies documents */
 export type HomePageManyWhereInput = {
   /** Logical AND on all given filters. */
@@ -2249,6 +2612,7 @@ export type HomePageManyWhereInput = {
   id_not_starts_with?: InputMaybe<Scalars['ID']['input']>;
   /** All values starting with the given string. */
   id_starts_with?: InputMaybe<Scalars['ID']['input']>;
+  mainSection?: InputMaybe<HomePageMainSectionWhereInput>;
   publishedAt?: InputMaybe<Scalars['DateTime']['input']>;
   /** All values greater than the given value. */
   publishedAt_gt?: InputMaybe<Scalars['DateTime']['input']>;
@@ -2299,6 +2663,7 @@ export enum HomePageOrderByInput {
 
 export type HomePageUpdateInput = {
   heroSection?: InputMaybe<HomePageHeroSectionUpdateOneInlineInput>;
+  mainSection?: InputMaybe<HomePageMainSectionUpdateOneInlineInput>;
 };
 
 export type HomePageUpdateManyInlineInput = {
@@ -2421,6 +2786,7 @@ export type HomePageWhereInput = {
   id_not_starts_with?: InputMaybe<Scalars['ID']['input']>;
   /** All values starting with the given string. */
   id_starts_with?: InputMaybe<Scalars['ID']['input']>;
+  mainSection?: InputMaybe<HomePageMainSectionWhereInput>;
   publishedAt?: InputMaybe<Scalars['DateTime']['input']>;
   /** All values greater than the given value. */
   publishedAt_gt?: InputMaybe<Scalars['DateTime']['input']>;
@@ -5346,8 +5712,8 @@ export type AboutPagesQuery = { __typename?: 'Query', aboutPages: Array<{ __type
 export type HomePageDataQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type HomePageDataQuery = { __typename?: 'Query', homePages: Array<{ __typename?: 'HomePage', heroSection: { __typename?: 'HomePageHeroSection', linkText: string, subtitle: string, title: string, details: { __typename?: 'RichText', raw: any } } }> };
+export type HomePageDataQuery = { __typename?: 'Query', homePages: Array<{ __typename?: 'HomePage', heroSection: { __typename?: 'HomePageHeroSection', linkText: string, subtitle: string, title: string, details: { __typename?: 'RichText', raw: any } }, mainSection: { __typename?: 'HomePageMainSection', bulletPoints: Array<string>, linkText: string, details: { __typename?: 'RichText', raw: any } } }> };
 
 
 export const AboutPagesDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"AboutPages"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"aboutPages"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"heroSection"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"subtitle"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"raw"}}]}},{"kind":"Field","name":{"kind":"Name","value":"heroImage"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"altText"}},{"kind":"Field","name":{"kind":"Name","value":"asset"}}]}},{"kind":"Field","name":{"kind":"Name","value":"title"}}]}}]}}]}}]} as unknown as DocumentNode<AboutPagesQuery, AboutPagesQueryVariables>;
-export const HomePageDataDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"HomePageData"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"homePages"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"heroSection"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"linkText"}},{"kind":"Field","name":{"kind":"Name","value":"subtitle"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"details"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"raw"}}]}}]}}]}}]}}]} as unknown as DocumentNode<HomePageDataQuery, HomePageDataQueryVariables>;
+export const HomePageDataDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"HomePageData"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"homePages"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"heroSection"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"linkText"}},{"kind":"Field","name":{"kind":"Name","value":"subtitle"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"details"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"raw"}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"mainSection"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"bulletPoints"}},{"kind":"Field","name":{"kind":"Name","value":"linkText"}},{"kind":"Field","name":{"kind":"Name","value":"details"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"raw"}}]}}]}}]}}]}}]} as unknown as DocumentNode<HomePageDataQuery, HomePageDataQueryVariables>;

@@ -14,7 +14,7 @@ import { TypedDocumentNode as DocumentNode } from '@graphql-typed-document-node/
  */
 const documents = {
     "\n  query AboutPages {\n    aboutPages {\n      heroSection {\n        subtitle {\n          raw\n        }\n        heroImage {\n          altText\n          asset\n        }\n        title\n      }\n    }\n  }\n": types.AboutPagesDocument,
-    "\n  query HomePageData {\n    homePages {\n      heroSection {\n        linkText\n        subtitle\n        title\n        details {\n          raw\n        }\n      }\n    }\n  }\n": types.HomePageDataDocument,
+    "\n  query HomePageData {\n    homePages {\n      heroSection {\n        linkText\n        subtitle\n        title\n        details {\n          raw\n        }\n      }\n      mainSection {\n        bulletPoints\n        linkText\n        details {\n          raw\n        }\n      }\n    }\n  }\n": types.HomePageDataDocument,
 };
 
 /**
@@ -38,7 +38,7 @@ export function gql(source: "\n  query AboutPages {\n    aboutPages {\n      her
 /**
  * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
-export function gql(source: "\n  query HomePageData {\n    homePages {\n      heroSection {\n        linkText\n        subtitle\n        title\n        details {\n          raw\n        }\n      }\n    }\n  }\n"): (typeof documents)["\n  query HomePageData {\n    homePages {\n      heroSection {\n        linkText\n        subtitle\n        title\n        details {\n          raw\n        }\n      }\n    }\n  }\n"];
+export function gql(source: "\n  query HomePageData {\n    homePages {\n      heroSection {\n        linkText\n        subtitle\n        title\n        details {\n          raw\n        }\n      }\n      mainSection {\n        bulletPoints\n        linkText\n        details {\n          raw\n        }\n      }\n    }\n  }\n"): (typeof documents)["\n  query HomePageData {\n    homePages {\n      heroSection {\n        linkText\n        subtitle\n        title\n        details {\n          raw\n        }\n      }\n      mainSection {\n        bulletPoints\n        linkText\n        details {\n          raw\n        }\n      }\n    }\n  }\n"];
 
 export function gql(source: string) {
   return (documents as any)[source] ?? {};

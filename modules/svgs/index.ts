@@ -4,7 +4,8 @@ import LinkedinIcon from './linkedin'
 import TiktokIcon from './tiktok'
 import XIcon from './x'
 import YouTubeIcon from './youtube'
-import FaceIcon from './face'
+import FaceRightIcon from './faceRight'
+import FaceLeftIcon from './faceLeft'
 
 export {
   InstagramIcon,
@@ -13,5 +14,6 @@ export {
   TiktokIcon,
   XIcon,
   YouTubeIcon,
-  FaceIcon
+  FaceLeftIcon,
+  FaceRightIcon
 }

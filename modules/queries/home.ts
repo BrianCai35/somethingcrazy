@@ -11,6 +11,13 @@ export const HOME_PAGE_DATA = gql(`
           raw
         }
       }
+      mainSection {
+        bulletPoints
+        linkText
+        details {
+          raw
+        }
+      }
     }
   }
 `)
