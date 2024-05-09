@@ -1,53 +1,11 @@
-import { gqlClient } from '@/modules/graphqlClient'
-import { HOME_PAGE_DATA } from 'queries'
-import { FaceLeftIcon, FaceRightIcon } from 'svgs'
-import { H4, Paragraph, Button, RichTextRenderer } from 'components'
+import Card from "@/modules/components/Card";
 
-export default async function Home (): Promise<JSX.Element> {
-  try {
-    const response = await gqlClient.request(HOME_PAGE_DATA)
-    const data = response.homePages[0]
-    return (
-      <main>
-        <section className='relative min-h-screen w-screen flex flex-col gap-y-8 items-center justify-center bg-azulado'>
-          <div className='absolute top-10 right-0 z-0'>
-            <FaceRightIcon color='#F45327' styles='min-w-[80px] max-w-[80px]' />
-          </div>
-          <div className='flex flex-col gap-y-2 items-center z-10 text-center w-[80%]'>
-            <H4 theme='dark'>{data.heroSection.title}</H4>
-            <Paragraph theme='dark'>{data.heroSection.subtitle}</Paragraph>
-          </div>
-          <div className='flex flex-col items-center'>
-            <RichTextRenderer content={data.heroSection.details.raw} />
-          </div>
-          <Button label={data.heroSection.linkText} theme='dark' />
-          <div className='absolute bottom-0 left-0 z-0'>
-            <FaceLeftIcon color='#F45327' styles='min-w-[100px] max-w-[120px]' />
-          </div>
-        </section>
-        <section className='relative min-h-screen py-[10%] w-screen flex flex-col gap-y-24 items-center justify-center bg-tilted-pinball'>
-          <div className='absolute top-[5vh] right-0 z-0'>
-            <FaceRightIcon color='white' styles='min-w-[70px] max-w-[80px]' />
-          </div>
-          <div className='absolute top-[40%] transform -translate-y-[40%] left-0 z-0'>
-            <FaceLeftIcon color='white' styles='min-w-[80px] max-w-[80px]' />
-          </div>
-          <div className='flex flex-col gap-y-8 items-center'>
-            {data.mainSection.bulletPoints.map((point, index) => (
-              <H4 theme='dark' key={index} styles='w-[50%] text-center z-10'>{point}</H4>
-            ))}
-          </div>
-          <div className='w-[80%] text-center'>
-            <RichTextRenderer content={data.mainSection.details.raw} />
-          </div>
-          <Button label={data.mainSection.linkText} theme='light' />
-        </section>
-      </main>
-    )
-  } catch (error) {
-    console.error(error)
-    return (
-      <main />
-    )
-  }
+export default function Home (): JSX.Element {
+  return (
+    <div className="m-auto w-11/12 sm:w-[90%] flex flex-wrap xl:space-x-3.5">
+    <Card color="tilted-pinball" title="Breaking Barriers" number="1" style="mt-4"><b>Breaking barriers</b> is about overcoming barriers in the HIV response to engage young people effectively involves addressing stigma, improving education, enhancing healthcare services, and advocating for policy changes.</Card>
+    <Card color="ias-blue" title="Building Power" number="2" style="mt-4"><b>Building power</b>and removing the obstacles that prevent youth-led organisations from being leaders of the response to HIV/AIDS. We discuss various issues, such as community mobilisation efforts gearing towards reducing stigma, promoting testing and treatment and funding capacity-building programs to empower young people.</Card>
+    <Card color="forest-olive" title="Building Power" number="2" style="mt-4">Lastly, <b>'forging' alliances</b> is symbolic in our partnership and understanding how forming strategic alliances can help us end AIDS through cross-sectoral collaboration, pooling resources and increasing sustainable funding for youth-led movements.</Card>
+    </div>
+  )
 }
